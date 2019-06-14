@@ -18,7 +18,6 @@ class SmurfForm extends Component {
   }
   fetchSmurf = async () =>  {
     const smurfs = await Axios.get('http://localhost:3333/smurfs')
-    console.log(smurfs.data);
     const smurf = smurfs.data.filter(smurf => smurf.id === parseInt(this.id))[0];
     this.setState({...smurf});
   }

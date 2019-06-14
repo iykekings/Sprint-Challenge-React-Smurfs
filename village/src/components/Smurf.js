@@ -18,7 +18,6 @@ const Smurf = props => {
     } else {
       setSmurf({...props})
     }
-    console.log(smurf)
   }, [])
 
   const deleteSmurf = (id) => {
