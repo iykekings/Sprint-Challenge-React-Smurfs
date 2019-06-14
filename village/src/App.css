@@ -1,3 +1,54 @@
 .App {
   text-align: center;
 }
+
+.nav {
+  background: coral;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.nav + * {
+  margin-top: 5rem;
+}
+
+.nav > a.active {
+  background-color: white;
+  border-bottom: 2px #F44336 dashed;
+}
+
+.nav > a {
+  text-decoration: none;
+  color: coral;
+  background-color: linen;
+  padding: 0.5rem 1rem;
+}
+
+.Smurf a {
+  color: inherit;
+}
+.SmurfForm form {
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SmurfForm form input{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+.SmurfForm form button{
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  background: coral;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+}
