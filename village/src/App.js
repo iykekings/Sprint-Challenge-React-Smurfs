@@ -14,6 +14,11 @@ class App extends Component {
   }
   baseUrl = 'http://localhost:3333/smurfs';
 
+  createSmurf = async smurf => {
+    const smurfs = await Axios.post(this.baseUrl, smurf);
+    this.setState({smurfs: smurfs.data});
+  }
+
   fetchSmurfs = async () => {
     const smurfs = await Axios.get(this.baseUrl);
     this.setState({smurfs: smurfs.data})
@@ -24,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm createSmurf={this.createSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
