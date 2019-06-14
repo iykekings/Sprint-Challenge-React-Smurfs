@@ -19,6 +19,10 @@ class App extends Component {
     const smurfs = await Axios.post(this.baseUrl, smurf);
     this.setState({smurfs: smurfs.data});
   }
+  deleteSmurf = async id => {
+    const smurfs = await Axios.delete(`${this.baseUrl}/${id}`);
+    this.setState({smurfs: smurfs.data});
+  }
 
   fetchSmurfs = async () => {
     const smurfs = await Axios.get(this.baseUrl);
@@ -37,7 +41,8 @@ class App extends Component {
         <Route exact path="/" 
           render={(rProps) => <Smurfs 
               {...rProps} 
-              smurfs={this.state.smurfs} /> }
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf} /> }
         />
         <Route path="/smurf-form" 
           render={(rProps) => <SmurfForm 
