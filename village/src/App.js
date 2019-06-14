@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +59,12 @@ class App extends Component {
           render={(rProps) => <SmurfForm 
               {...rProps}
               updateSmurf={this.updateSmurf}
+               /> }
+        />
+        <Route path="/smurf/:id" 
+          render={(rProps) => <Smurf
+              {...rProps}
+              deleteSmurf={this.deleteSmurf}
                /> }
         />
       </div>
