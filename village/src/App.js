@@ -23,6 +23,10 @@ class App extends Component {
     const smurfs = await Axios.delete(`${this.baseUrl}/${id}`);
     this.setState({smurfs: smurfs.data});
   }
+  updateSmurf = async (id, smurf) => {
+    const smurfs = await Axios.put(`${this.baseUrl}/${id}`, smurf);
+    this.setState({smurfs: smurfs.data});
+  }
 
   fetchSmurfs = async () => {
     const smurfs = await Axios.get(this.baseUrl);
@@ -47,7 +51,14 @@ class App extends Component {
         <Route path="/smurf-form" 
           render={(rProps) => <SmurfForm 
               {...rProps} 
-              createSmurf={this.createSmurf} /> }
+              createSmurf={this.createSmurf}
+               /> }
+        />
+        <Route path="/smurfs/:id" 
+          render={(rProps) => <SmurfForm 
+              {...rProps}
+              updateSmurf={this.updateSmurf}
+               /> }
         />
       </div>
     );
