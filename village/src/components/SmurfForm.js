@@ -12,7 +12,6 @@ class SmurfForm extends Component {
   }
   id  = this.props.match.params.id;
   componentDidMount() {
-    console.log(this.id)
     if(this.id) {
       this.fetchSmurf();
     }

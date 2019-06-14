@@ -13,7 +13,6 @@ const Smurf = props => {
 }
 
   useEffect(() => {
-    console.log(props)
     if(props.match) {
       id = props.match.params.id;
       fetchSmurf(id)

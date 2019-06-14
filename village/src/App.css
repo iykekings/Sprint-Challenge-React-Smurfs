@@ -27,3 +27,28 @@
   background-color: linen;
   padding: 0.5rem 1rem;
 }
+
+.Smurf a {
+  color: inherit;
+}
+.SmurfForm form {
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SmurfForm form input{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+.SmurfForm form button{
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  background: coral;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+}
