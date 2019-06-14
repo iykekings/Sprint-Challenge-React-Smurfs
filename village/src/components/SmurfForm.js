@@ -18,16 +18,18 @@ class SmurfForm extends Component {
   }
   fetchSmurf = async () =>  {
     const smurfs = await Axios.get('http://localhost:3333/smurfs')
-    const smurf = smurfs.data.filter(smurf => smurf.id = this.id)[0];
+    console.log(smurfs.data);
+    const smurf = smurfs.data.filter(smurf => smurf.id === parseInt(this.id))[0];
     this.setState({...smurf});
   }
   addSmurf = async event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    const { name, height, age } = this.state;
     if(this.id) {
-      this.props.updateSmurf(this.id, this.state)
+      this.props.updateSmurf(this.id, {name, height, age: parseInt(age)})
     } else {
-      this.props.createSmurf(this.state);
+      this.props.createSmurf({name, height, age: parseInt(age)});
     }
     this.setState({
       name: '',

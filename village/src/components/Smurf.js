@@ -3,23 +3,24 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Smurf = props => {
- let id = null;
- const [smurf, setSmurf] = useState({name: '', height: '', age: '', id: 0})
+ const [smurf, setSmurf] = useState({name: '', height: '', age: '', id: ''})
 
  const fetchSmurf = async (sId) =>  {
   const smurfs = await Axios.get('http://localhost:3333/smurfs')
-  const smurf = smurfs.data.filter(smurf => smurf.id = sId)[0];
-  setSmurf({...smurf, id: sId});
+  const newSmurf = smurfs.data.filter(smurf => smurf.id === parseInt(sId))[0];
+  setSmurf({...newSmurf, id: sId});
 }
 
   useEffect(() => {
     if(props.match) {
-      id = props.match.params.id;
+      const id = props.match.params.id;
       fetchSmurf(id)
     } else {
       setSmurf({...props})
     }
+    console.log(smurf)
   }, [])
+
   const deleteSmurf = (id) => {
     if(props.history) {
       props.deleteSmurf(id)
@@ -42,12 +43,12 @@ const Smurf = props => {
   );
 };
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: '',
-  id: 0
-};
+// Smurf.defaultProps = {
+//   name: '',
+//   height: '',
+//   age: '',
+//   id: ''
+// };
 
 export default Smurf;
 
